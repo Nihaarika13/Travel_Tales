@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner - Travel Tales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black */
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .result-container, .places-container {
+            margin-top: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.jpg" alt="Travel Tales Logo" class="logo">
+                Travel Tales
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="planner.html">Planner</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="background"></div>
+        <div class="container content1">
+            <h1 class="text-center">Travel Planner</h1>
+            <form id="plannerForm">
+                <div class="form-container">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label for="place">Place</label>
+                            <input type="text" class="form-control" id="place" placeholder="Enter place name" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="days">Number of Days</label>
+                            <input type="number" class="form-control" id="days" placeholder="Number of days" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="startDate">Start Travel</label>
+                            <input type="date" class="form-control" id="startDate" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="endDate">End Travel</label>
+                            <input type="date" class="form-control" id="endDate" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="passengers">Number of Passengers</label>
+                            <input type="number" class="form-control" id="passengers" placeholder="Enter number of passengers" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="radius">Radius of Reach (km)</label>
+                            <input type="number" class="form-control" id="radius" placeholder="Enter radius of reach" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="budget">Budget ($)</label>
+                            <input type="number" class="form-control" id="budget" placeholder="Enter your budget" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="contactNo">Contact No</label>
+                            <input type="tel" class="form-control" id="contactNo" placeholder="Enter your contact number" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg">Plan my Trip</button>
+                </div>
+            </form>
+            <div id="resultContainer" class="result-container"></div>
+            <div id="placesContainer" class="places-container"></div>
+        </div>
+    </main>
+    <script src="script1.js"></script>
+</body>
+</html>

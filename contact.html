@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Travel Tales</title>
+    <!-- Import Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .background {
+            background-image: url('home.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+        }
+
+        .content1 {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            text-align: center;
+            max-width: 700px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .content1 img {
+            width: 600px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .content1 h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            flex: 1 1 45%;
+            margin-bottom: 20px;
+        }
+
+        .cards .card:nth-child(3) {
+            flex-basis: 100%;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+        }
+
+        /* Chat Box Styling */
+        .chat-box {
+            position: fixed;
+            bottom: 0;
+            right: 20px;
+            width: 300px;
+            max-height: 400px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none; /* Default to hidden */
+            flex-direction: column;
+            transition: max-height 0.3s ease;
+        }
+
+        .chat-box.minimized {
+            max-height: 50px; /* Only show the header */
+        }
+
+        .chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .chat-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .chat-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            margin-left: auto;
+            cursor: pointer;
+        }
+
+        .chat-content {
+            padding: 10px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        #send-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #send-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.jpg" alt="Travel Tales Logo" class="logo">
+                Travel Tales
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="planner.html">Planner</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="background"></div>
+        <div class="content1">
+            <img src="Contact.png" alt="Contact">
+            <h1><b>Get in touch with our creator-friendly support team!</b></h1>
+            <div class="cards">
+                <div class="card">
+                    <h2><b>Chat Support</b></h2>
+                    <p>Our support team is just a click away. Get instant help with our live chat feature.</p>
+                    <button type="button" class="btn btn-primary btn-block" id="chat-button">Click Here</button>
+                </div>
+                <div class="card">
+                    <h2><b>Email Support</b></h2>
+                    <p>For detailed inquiries <a href="https://mail.google.com/mail/?view=cm&fs=1&to=email.traveltales@gmail.com" target="_blank">Email Us</a>. We’ll get back to you as soon as possible.</p>
+
+                </div>
+                <div class="card">
+                    <h2><b>Phone Support</b></h2>
+                    <p>Prefer to speak with us directly? Call us at (123) 456-7890 for assistance.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Chat Box Structure -->
+        <div id="chat-box" class="chat-box minimized">
+            <div class="chat-header">
+                <img src="speech-bubbles.png" alt="Chat Icon" class="chat-icon">
+                Chat Support
+                <button id="chat-toggle" class="chat-toggle">&#x25B2;</button>
+            </div>
+            <div id="chat-content" class="chat-content"></div>
+            <div class="chat-input">
+                <input id="user-input" type="text" placeholder="Type your message..." />
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </main>
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Get elements
+        const chatBox = document.getElementById('chat-box');
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatContent = document.getElementById('chat-content');
+        const sendButton = document.getElementById('send-button');
+        const userInput = document.getElementById('user-input');
+        const chatButton = document.getElementById('chat-button'); // The "Click Here" button
+
+        // Event listener to show chat box when "Click Here" button is pressed
+        chatButton.addEventListener('click', () => {
+            chatBox.style.display = 'flex';
+            addMessage('Travel Tales', 'Hi! Welcome to Travel Tales. How may I help you?');
+        });
+
+        // Function to toggle chat box visibility
+        function toggleChatBox() {
+            if (chatBox.classList.contains('minimized')) {
+                chatBox.classList.remove('minimized');
+                chatToggle.innerHTML = "&#x25BC;"; // Down arrow when open
+            } else {
+                chatBox.classList.add('minimized');
+                chatToggle.innerHTML = "&#x25B2;"; // Up arrow when minimized
+            }
+        }
+
+        // Event listener for the toggle button inside the chat box
+        chatToggle.addEventListener('click', () => {
+            toggleChatBox();
+        });
+
+        // Event listener for the send button
+        sendButton.addEventListener('click', () => {
+            const userText = userInput.value.trim();
+            if (userText) {
+                addMessage('You', userText);
+                userInput.value = ''; // Clear the input field
+                const botResponse = generateResponse(userText);
+                setTimeout(() => {
+                    addMessage('Travel Tales', botResponse);
+                }, 1000); // Simulate a delay for the bot response
+            }
+        });
+
+        // Optional: Send message when the user presses Enter
+        userInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+
+        // Function to add a message to the chat
+        function addMessage(sender, text) {
+            const message = document.createElement('p');
+            message.classList.add('chat-message');
+            message.innerHTML = `<strong>${sender}:</strong> ${text}`;
+            chatContent.appendChild(message);
+            chatContent.scrollTop = chatContent.scrollHeight; // Scroll to the bottom
+        }
+
+        // Function to generate a response based on the user's input
+function generateResponse(userText) {
+    let response = "I'm sorry, I didn't understand that. Could you please clarify?";
+
+    // Convert user text to lowercase for case-insensitive matching
+    const lowerCaseText = userText.toLowerCase();
+
+    // Check for specific keywords or phrases
+    if (lowerCaseText.includes('hotel')) {
+        response = "We can help you find the best hotels. Please fill the details asked in the PLANNER page of our website.";
+    } else if (lowerCaseText.includes('flight')) {
+        response = "Looking for flights? Please provide your destination and preferred dates in the PLANNER page.";
+    } else if (['thank you', 'okay', 'ok', 'k'].some(keyword => lowerCaseText.includes(keyword))) {
+        response = "You're welcome! Let us know if you need anything else.";
+    } else if (['trip', 'plan','travel'].some(keyword => lowerCaseText.includes(keyword))) {
+        response = "Looking for a travel plan? Please provide the details in the PLANNER page of our website.";
+    }
+    else if(['hi','hii','hello'].some(keyword => lowerCaseText.includes(keyword))) {
+        response="Hello. How may we help you?"
+    }
+
+    return response;
+}
+
+    </script>
+</body>
+</html>
